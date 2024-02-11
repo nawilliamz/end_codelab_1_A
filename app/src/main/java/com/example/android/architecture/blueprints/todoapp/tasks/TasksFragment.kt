@@ -32,6 +32,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.android.architecture.blueprints.todoapp.EventObserver
 import com.example.android.architecture.blueprints.todoapp.R
+import com.example.android.architecture.blueprints.todoapp.TodoApplication
 import com.example.android.architecture.blueprints.todoapp.data.Task
 import com.example.android.architecture.blueprints.todoapp.data.source.DefaultTasksRepository
 import com.example.android.architecture.blueprints.todoapp.data.source.TasksRepository
@@ -51,7 +52,7 @@ class TasksFragment : Fragment() {
     //view models are meant to work--you don't actually construct them yourself.
     private val viewModel by viewModels<TasksViewModel>(){
         //Recall the getRepository() method is inside companionObject in DefaultTasksRepository
-        TasksViewModel.TasksViewModelFactory(DefaultTasksRepository.getRepository(requireActivity().application))
+        TasksViewModel.TasksViewModelFactory((requireContext().applicationContext as TodoApplication).taskRepository)
     }
 
     private val args: TasksFragmentArgs by navArgs()

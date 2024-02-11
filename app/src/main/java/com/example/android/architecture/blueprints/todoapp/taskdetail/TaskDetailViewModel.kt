@@ -121,7 +121,7 @@ class TaskDetailViewModel(private val tasksRepository:TasksRepository) : ViewMod
 
 
     //Here we're constructing our view model used above
-    @Suppress("UNCHECKED_CAST") class TasksViewModelFactory (
+    @Suppress("UNCHECKED_CAST") class TasksDetailViewModelFactory (
         private val tasksRepository: TasksRepository
     ) : ViewModelProvider.NewInstanceFactory() {
         override fun <T : ViewModel> create(modelClass: Class<T>) = (TaskDetailViewModel(tasksRepository) as T) }

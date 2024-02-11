@@ -80,5 +80,7 @@ class TaskDetailFragmentTest{
         // and make sure the "active" checkbox is shown unchecked
         onView(withId(R.id.task_detail_complete_checkbox)).check(matches(isDisplayed()))
         onView(withId(R.id.task_detail_complete_checkbox)).check(matches(not(isChecked())))
+
+        Thread.sleep(10000)
     }
 }
